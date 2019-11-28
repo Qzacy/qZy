@@ -18,6 +18,7 @@ Put your SUDO passwd:
 ```[user]-[qZy] > add ...```
 
 Add the APIs keys:
+
 ![addapis](screenshots/add_apis.png)
 
 Enjoy:
