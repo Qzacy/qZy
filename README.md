@@ -7,4 +7,4 @@ $ ```cd qZy```
 $ ```python3 install.py```
 
 ### Setup
-Check [Install](### Install)
+Check [Install]
