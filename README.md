@@ -3,7 +3,9 @@ Domain scan, Phone Number scan, Mail scan.
 
 ### Installation
 $ ```git clone https://github.com/Qzacy/qZy.git```
+
 $ ```cd qZy```
+
 $ ```python3 install.py```
 
 ### Setup
