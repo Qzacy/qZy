@@ -44,5 +44,6 @@ Phone number scan
 
 Phone number scan
 
-+Scott Brady's Email-Verificatin-Script
++Scott Brady's Email-Verificatin-Script:
+
 [Website](https://www.scottbrady91.com)
