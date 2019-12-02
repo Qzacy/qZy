@@ -209,10 +209,10 @@ def sel():
             else:
                   print("Please, enter a valid option.")
                   sel()
-      #except Exception as err:
-      #      print("\nError: '" + str(err) + "',\nwrite me to fix the issue.\n\nPress [ENTER] to continue...")
-      #      input()
-      #      sel()
+      except Exception as err:
+            print("\nError: '" + str(err) + "',\nwrite me to fix the issue.\n\nPress [ENTER] to continue...")
+            input()
+            sel()
       except KeyboardInterrupt:
             print("\nFound: '^C', try 'exit' to close the script.")
             sel()
