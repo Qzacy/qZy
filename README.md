@@ -32,19 +32,19 @@ Enjoy:
 ### APIs
 [WhoIsXMLAPI](whoisxmlapi.com):
 
-Mail scan
+>mail scan
 
 [Numverify](numverify.com):
 
-Phone number scan
+>phone number scan
 
 [Veriphone](veriphone.io):
 
-Phone number scan
+>phone number scan
 
 [Antideo](antideo.com):
 
-Phone number scan
+>phone number scan
 
 +Scott Brady's Email-Verificatin-Script:
 
