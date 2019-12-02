@@ -15,19 +15,19 @@ $ ```python3 qZy.py```
 
 Put your SUDO passwd:
 
-![sudopwd](screenshots/sudo_passwd.png)
+![sudopwd](setup/screenshots/sudo_passwd.png)
 
 ```[user]-[qZy] > add ...```
 
 Add the APIs keys:
 
-![addapis](screenshots/add_apis.png)
+![addapis](setup/screenshots/add_apis.png)
 
 Enjoy:
 
 ```[user]-[qZy] > help```
 
-![cmds](screenshots/commands.png)
+![cmds](setup/screenshots/commands.png)
 
 ### APIs
 [WhoIsXMLAPI](whoisxmlapi.com):
