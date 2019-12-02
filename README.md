@@ -49,3 +49,7 @@ Phone number scan
 +Scott Brady's Email-Verificatin-Script:
 
 [Website](https://www.scottbrady91.com)
+
+
+
+**Tested on: Parrot OS**
