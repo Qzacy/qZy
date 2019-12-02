@@ -4,6 +4,7 @@
 
 import os, sys, datetime, getpass, re, requests, urllib, json, phonenumbers, smtplib, socket, dns.resolver
 from phonenumbers import geocoder, carrier, timezone
+from bs4 import BeautifulSoup
 from time import sleep
 
 user = getpass.getuser()
@@ -14,7 +15,7 @@ current = open(cdir + "/setup/version.txt", "r")
 current = current.readline()
 dt = str(datetime.datetime.now()) + "\b\b\b\b\b\b\b"
 hh = """
->>> Domains scan commands
+>>> Domains commands
 sn                       Subnet Lookup
 hd                       Get http-headers
 os                       OS Detection (nmap)
@@ -22,14 +23,15 @@ op                       Open Ports (nmap)
 tr                       Traceroute
 dns                      DNS Lookup (A, AAAA, ALIAS, CNAME, MX, NS, SOA, PTR)
 gip                      GeoIP (IP-API)
+shot                     Screenshot
 
->>> Numbers scan commands
+>>> Numbers commands
 pl                       Python Scan (using phonenumbers lib)
 nv                       Numverify Scan*
 antd                     Antideo Scan
 verp                     Veriphone Scan*
 
->>> Mails scan commands
+>>> Mails commands
 ml                       Python Scan (using different libs)
 xa                       WhoIsXMLAPI Scan*
 
@@ -115,6 +117,10 @@ def sel():
                   ws = input("Enter the domain: ")
                   ip = socket.gethostbyname(ws)
                   gipl(ws, ip)
+            elif cmd == "shot":
+                  ws = input("Enter the domain: ")
+                  ip = socket.gethostbyname(ws)
+                  sshot(ws, ip)
             elif cmd == "pl":
                   unumber = input("Enter the complete phone number: ")
                   if not unumber.startswith("+"):
@@ -533,23 +539,36 @@ def snet(ws, ip):
 
       sel()
 
-
+def sshot(ws, ip):
+      os.system("clear")
+      print("Started - " + dt + "                              qZy - by Qzacy")
+      print("Target: [" + ws + "] [" + ip + "]\nMode:   [Website Shot]\n")
+      sleep(0.5)
+      api_file = open(cdir + "/setup/xapi.txt", "r")
+      api_key = api_file.readline()
+      try:
+            urllib.request.urlretrieve("https://website-screenshot-api.whoisxmlapi.com/api/v1?apiKey=" + api_key + "&url=" + ws + "&fullPage", cdir + "/wshots/" + ws + ".png")
+            print("Saved in:\n" + cdir + "/wshots/" + ws + ".png\n")
+            sel()
+      except Exception as err:
+            print("Error: '" + str(err) + "' while writing the image.")
+            sel()
 
 
 if __name__ == "__main__":
       try:
             passwd = getpass.getpass()
-            if len(sys.argv) != 1:
-                  os.system("clear")
-                  print(banner)
-                  sel()
-            else:
-                  os.system("clear")
-                  print("Starting...")
-                  sleep(0.5)
-                  os.system("clear")
-                  print(banner)
-                  sel()
       except Exception:
             print("\nEnter your sudo passwd.")
             sys.exit()
+      if len(sys.argv) != 1:
+            os.system("clear")
+            print(banner)
+            sel()
+      else:
+            os.system("clear")
+            print("Starting...")
+            sleep(0.5)
+            os.system("clear")
+            print(banner)
+            sel()
