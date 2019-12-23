@@ -28,7 +28,7 @@ if not os.path.isfile("/usr/bin/curl"):
 else:
     print("[curl]           Found.")
 if not to_install:
-    os.system("pip3 install -r requirements.txt")
+    os.system("pip install -r requirements.txt")
     print("All requirements are installed.")
 else:
     print("Installing all requirements...")
