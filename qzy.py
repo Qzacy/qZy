@@ -214,7 +214,7 @@ def sel():
             input()
             sel()
       except KeyboardInterrupt:
-            print("\nFound: '^C', try 'exit' to close the script.")
+            print("\nFound: '^C', use 'exit' to close the script.")
             sel()
 
 def restart():
