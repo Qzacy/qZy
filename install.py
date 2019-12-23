@@ -33,5 +33,5 @@ if not to_install:
 else:
     print("Installing all requirements...")
     os.system("echo %s|sudo -S apt-get install %s" % (passwd, " ".join(to_install)))
-    os.system("pip install -r requirements.txt")
+    os.system("pip3 install -r requirements.txt")
     print("All requirements are installed.")
