@@ -39,13 +39,17 @@ else:
     sleep(0.5)
     print("[curl]           Found.")
 if not to_install:
+    sleep(1)
+    print("Installing Python3 requirements...")
     os.system("pip3 install -r requirements.txt")
     sleep(1)
     print("All requirements are installed.")
 else:
-    print("Installing all requirements...")
     sleep(1)
+    print("Installing System requirements...")
     os.system("echo %s|sudo -S apt-get install %s" % (passwd, " ".join(to_install)))
+    sleep(1)
+    print("Installing Python3 requirements...")
     os.system("pip3 install -r requirements.txt")
     sleep(1)
     print("All requirements are installed.")
