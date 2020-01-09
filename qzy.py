@@ -12,7 +12,7 @@ uos = os.uname().sysname
 unode = os.uname().nodename
 cdir = os.path.dirname(os.path.realpath(__file__))
 current = open(cdir + "/setup/version.txt", "r")
-current = current.readline()
+current = current.readline(5)
 dt = str(datetime.datetime.now()) + "\b\b\b\b\b\b\b"
 hh = """
 >>> Domains commands
@@ -23,6 +23,7 @@ op                       Open Ports (nmap)
 tr                       Traceroute
 dns                      DNS Lookup (A, AAAA, ALIAS, CNAME, MX, NS, SOA, PTR)
 gip                      GeoIP (IP-API)
+ms                       Mails Scraper
 shot                     Screenshot
 
 >>> Numbers commands
@@ -52,11 +53,11 @@ exit
 """
 banner = """
          _
-qZy     |E] Coded by Qzacy,             *         
-      .-|=====-. Running:        %s |_Phone                       
-      | | Mail | OS:             %s(O)           
-v%s|________| User:           %s |#|                     
-    ¯¯¯   ||            _              '-'
+qZy     |E] Coded by Qzacy,              *         
+      .-|=====-. Running:        %s   |_Phone                       
+      | | Mail | OS:             %s  (O)           
+v%s|________| User:           %s     |#|                     
+    ¯¯¯   ||            _                '-'
           ||           |-|  __                            
           ||           |=| [Ll] PC  
           ||           "^" ====`o
@@ -121,6 +122,10 @@ def sel():
                   ws = input("Enter the domain: ")
                   ip = socket.gethostbyname(ws)
                   sshot(ws, ip)
+            elif cmd == "ms":
+                  ws = input("Enter the domain: ")
+                  ip = socket.gethostbyname(ws)
+                  msc(ws, ip)
             elif cmd == "pl":
                   unumber = input("Enter the complete phone number: ")
                   if not unumber.startswith("+"):
@@ -554,6 +559,19 @@ def sshot(ws, ip):
             print("Error: '" + str(err) + "' while writing the image.")
             sel()
 
+def msc(ws, ip):
+      os.system("clear")
+      print("Started - " + dt + "                              qZy - by Qzacy")
+      print("Target: [" + ws + "] [" + ip + "]\nMode:   [Mails Scrape]\n")
+      sleep(0.5)
+      if "http://" not in ws:
+            ws = "http://" + ws
+      r = requests.get(ws)
+      s = BeautifulSoup(r.text, "lxml")
+      text = s.text
+      mails = re.findall(r"[\w\.-]+@[\w\.-]+", text)
+      print("Mails:\n" + " ".join(mails))
+      sel()
 
 if __name__ == "__main__":
       try:
