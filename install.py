@@ -41,7 +41,7 @@ else:
 if not to_install:
     sleep(1)
     print("Installing Python3 requirements...")
-    os.system("pip3 install -r /setup/requirements.txt")
+    os.system("pip3 install -r setup/requirements.txt")
     sleep(1)
     print("All requirements are installed.")
 else:
