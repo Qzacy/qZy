@@ -46,7 +46,7 @@ Enjoy:
 
 >phone number scan
 
-+Scott Brady's Email-Verificatin-Script:
++Scott Brady's Email-Verification-Script:
 
 [Website](https://www.scottbrady91.com)
 
