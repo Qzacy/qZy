@@ -162,7 +162,7 @@ def sel():
             elif cmd == "ml":
                   umail = input("Enter the email: ")
                   umail = umail.lower()
-                  scheck = re.match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$", umail)
+                  scheck = re.match(r"^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$", umail)
                   if scheck == None:
                         print("Enter a valid email address.")
                         sel()
@@ -171,7 +171,7 @@ def sel():
             elif cmd == "xa":
                   umail = input("Enter the email: ")
                   umail = umail.lower()
-                  scheck = re.match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$", umail)
+                  scheck = re.match(r"^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$", umail)
                   if scheck == None:
                         print("Enter a valid email address.")
                         sel()
@@ -570,8 +570,12 @@ def msc(ws, ip):
       s = BeautifulSoup(r.text, "lxml")
       text = s.text
       mails = re.findall(r"[\w\.-]+@[\w\.-]+", text)
-      print("Mails:\n" + " ".join(mails))
-      sel()
+      if not mails:
+            print("Nothing found. Maybe the website has an email-protection.")
+            sel()
+      else:
+            print("Mails:\n" + "\n".join(mails))
+            sel()
 
 if __name__ == "__main__":
       try:
